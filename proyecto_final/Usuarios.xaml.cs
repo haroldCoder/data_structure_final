@@ -21,19 +21,38 @@ namespace proyecto_final
 	/// </summary>
 	public partial class Usuarios : UserControl
 	{
-		private Stack<Usuario> ad;
+		private Administrador ad;
 
-		public Usuarios(Stack<Usuario> ad)
+        public Usuarios(Administrador ad)
 		{
 			InitializeComponent();
 			this.ad = ad; 
-			DataContext = ad;
+			
 			CargarUsuarios();
 		}
 
 		private void CargarUsuarios()
 		{
-			lvUsuarios.ItemsSource = ad;
+			DataContext = ad;
+			lvUsuarios.ItemsSource = null; // Limpia la lista actual
+			lvUsuarios.ItemsSource = ad.usuarios;
 		}
-	}
+
+		private void Deleteus(object sender, RoutedEventArgs e)
+		{
+			ad.usuarios.Pop();
+			CargarUsuarios();
+        }
+
+        private void deleteAllUs(object sender, RoutedEventArgs e)
+        {
+			ad.usuarios.Clear();
+			CargarUsuarios();
+        }
+
+        private void Administrador_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+
+        }
+    }
 }

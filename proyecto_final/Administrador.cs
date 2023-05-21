@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace proyecto_final
 {
-	internal class Administrador
+	public class Administrador
 	{
 		public Stack<Usuario> usuarios = new Stack<Usuario>();
 		public Administrador()

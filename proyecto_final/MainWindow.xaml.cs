@@ -38,7 +38,7 @@ namespace proyecto_final
 		public MainWindow()
         {
             InitializeComponent();
-            MyFrame.NavigationService.Navigate(new Usuarios(adr.usuarios));
+            MyFrame.NavigationService.Navigate(new Usuarios(adr));
         }
 
         private void frame_Navigated(object sender, NavigationEventArgs e)
@@ -50,7 +50,7 @@ namespace proyecto_final
 		{
             Usuario us = new Usuario(boxname.Text, uint.Parse(boxnum.Text), rd.IsChecked.Value ? "Hombre" : "Mujer");
             adr.usuarios.Push(us);
-			MyFrame.NavigationService.Navigate(new Usuarios(adr.usuarios));
+			MyFrame.NavigationService.Navigate(new Usuarios(adr));
 		}
 	}
 }
